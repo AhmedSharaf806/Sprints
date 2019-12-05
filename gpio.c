@@ -171,28 +171,28 @@ void gpioPinDirection(uint8 port, uint8 pins, uint8 direction){
 	switch(port)
 	{
 		    case GPIOA:
-			if(direction)
+			if(direction==INPUT)
 			    CLR_BIT(PORTA_DIR,pins);
 			else
 			    SET_BIT(PORTA_DIR,pins);
 			break;
 
 		    case GPIOB:
-			if(direction)
+			if(direction==INPUT)
 			    CLR_BIT(PORTB_DIR,pins);
 			else
 			    SET_BIT(PORTB_DIR,pins);
 			break;
 
 		    case GPIOC:
-			if(direction)
+			if(direction==INPUT)
 			    CLR_BIT(PORTC_DIR,pins);
 			else
 			    SET_BIT(PORTC_DIR,pins);
 			break;
 
 		    case GPIOD:
-			if(direction)
+			if(direction==INPUT)
 			    CLR_BIT(PORTD_DIR,pins);
 			else
 			    SET_BIT(PORTD_DIR,pins);
@@ -221,24 +221,36 @@ void gpioPinDirection(uint8 port, uint8 pins, uint8 direction){
  */
 void gpioPinWrite(uint8 port, uint8 pins, uint8 value){
 
-	switch (port)
-	    {
-		case GPIOA:
-		    ASSIGN_BIT(PORTA_DATA,pins,value);
-		    break;
+	switch(port)
+	{
+		    case GPIOA:
+			if(value==LOW)
+			    CLR_BIT(PORTA_DATA,pins);
+			else
+			    SET_BIT(PORTA_DATA,pins);
+			break;
 
-		case GPIOB:
-		    ASSIGN_BIT(PORTB_DATA,pins,value);
-		    break;
+		    case GPIOB:
+			if(value==LOW)
+			    CLR_BIT(PORTB_DATA,pins);
+			else
+			    SET_BIT(PORTB_DATA,pins);
+			break;
 
-		case GPIOC:
-		    ASSIGN_BIT(PORTC_DATA,pins,value);
-		    break;
+		    case GPIOC:
+			if(value==LOW)
+			    CLR_BIT(PORTC_DATA,pins);
+			else
+			    SET_BIT(PORTC_DATA,pins);
+			break;
 
-		case GPIOD:
-		    ASSIGN_BIT(PORTD_DATA,pins,value);
-		    break;
-	    }
+		    case GPIOD:
+			if(value==LOW)
+			    CLR_BIT(PORTD_DATA,pins);
+			else
+			    SET_BIT(PORTD_DATA,pins);
+			break;
+	}
 }
 
 /**
